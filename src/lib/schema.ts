@@ -3,7 +3,7 @@
 // 검증: https://search.google.com/test/rich-results
 // ─────────────────────────────────────────────
 import { absoluteUrl } from "./config";
-import { site } from "@/data/site";
+import { industry, site } from "@/data/site";
 import { doctors } from "@/data/content";
 import type { Treatment } from "@/data/treatments";
 
@@ -13,15 +13,15 @@ const CLINIC_ID = absoluteUrl("/#clinic");
 export function clinicSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalClinic", "Dermatology"],
+    "@type": [...industry.schemaTypes],
     "@id": CLINIC_ID,
     name: site.nameKo,
-    alternateName: `${site.nameEn} Dermatology`,
+    alternateName: site.brandFull,
     description: site.description,
     url: absoluteUrl("/"),
-    image: absoluteUrl("/og"),
+    image: absoluteUrl("/og.png"),
     telephone: site.phone,
-    medicalSpecialty: "Dermatologic",
+    medicalSpecialty: industry.medicalSpecialty,
     address: { "@type": "PostalAddress", ...site.postal },
     openingHoursSpecification: site.openingHours.map((h) => ({
       "@type": "OpeningHoursSpecification",
@@ -39,8 +39,8 @@ export function physicianSchemas() {
     "@context": "https://schema.org",
     "@type": "Physician",
     name: d.name,
-    jobTitle: `${d.role} · 피부과 전문의`,
-    medicalSpecialty: "Dermatologic",
+    jobTitle: `${d.role} · ${industry.specialistTitle}`,
+    medicalSpecialty: industry.medicalSpecialty,
     description: d.quote,
     worksFor: { "@id": CLINIC_ID },
   }));
@@ -73,7 +73,7 @@ export function treatmentSchema(t: Treatment) {
     inLanguage: "ko-KR",
     lastReviewed: t.reviewedAt,
     reviewedBy: reviewer
-      ? { "@type": "Physician", name: reviewer.name, jobTitle: `${reviewer.role} · 피부과 전문의` }
+      ? { "@type": "Physician", name: reviewer.name, jobTitle: `${reviewer.role} · ${industry.specialistTitle}` }
       : undefined,
     about: {
       "@type": t.category === "medical" ? "MedicalCondition" : "MedicalProcedure",

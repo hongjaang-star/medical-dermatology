@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static"; // 정적 export 용
 import { absoluteUrl } from "@/lib/config";
 import { treatments } from "@/data/treatments";
 

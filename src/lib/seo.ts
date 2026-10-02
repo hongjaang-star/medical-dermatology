@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { absoluteUrl } from "./config";
 import { site } from "@/data/site";
 
-/** 공유 이미지 (app/og/route.tsx 가 생성) */
+/** 공유 이미지 (app/og.png/route.tsx 가 빌드 때 생성) */
 export const OG_IMAGE = {
-  url: absoluteUrl("/og"),
+  url: absoluteUrl("/og.png"),
   width: 1200,
   height: 630,
-  alt: "LUMIÈRE Dermatology — 강남역 뤼미에르 피부과",
+  alt: `${site.brandFull} — ${site.area} ${site.nameShort}`,
 };
 
 /** 브랜드 + 지역 키워드. 모든 페이지 제목 뒤에 붙습니다. */

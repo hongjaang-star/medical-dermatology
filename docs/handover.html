@@ -165,7 +165,7 @@ html{scroll-behavior:smooth}
       <p class="lead">이 사이트를 이어받아 수정하고 배포할 사람을 위한 문서입니다. 사용 기술, 폴더 구조, 자주 하는 수정 작업, 주의할 점, 남은 작업을 한곳에 정리했습니다.</p>
     </div>
     <dl class="meta">
-      <dt>프로젝트 경로</dt><dd>project/derma_clinic</dd>
+      <dt>프로젝트 경로</dt><dd>medical-dermatology</dd>
       <dt>작성일</dt><dd>2026-09-29</dd>
       <dt>프레임워크</dt><dd>Next.js 16.3.6</dd>
       <dt>Node 요구</dt><dd>&gt;= 20.9.0</dd>
@@ -198,11 +198,11 @@ html{scroll-behavior:smooth}
       <div class="body">
         <p class="soft">Node.js 20.9 이상이 설치된 PC에서 아래 순서로 실행합니다. 처음 받은 경우 <code>npm install</code>을 먼저 해야 합니다.</p>
         <div class="code">
-          <div class="cap">터미널 · project/derma_clinic 폴더에서<button class="copy" type="button" data-copy="c1">복사</button></div>
+          <div class="cap">터미널 · medical-dermatology 폴더에서<button class="copy" type="button" data-copy="c1">복사</button></div>
           <pre id="c1">npm install          <span class="cm"># 라이브러리 설치 (처음 1회, node_modules 생성)</span>
-npm run dev          <span class="cm"># 개발 서버 → http://localhost:3000/project/derma_clinic</span>
+npm run dev          <span class="cm"># 개발 서버 → http://localhost:3000/project/medical-dermatology</span>
 npm run build        <span class="cm"># 배포용 빌드 (오류 검사 포함)</span>
-npm start            <span class="cm"># 빌드 결과를 운영 모드로 실행</span>
+<span class="cm"># 빌드 결과는 out/ 폴더 — 폴더 안 파일 전체를 웹호스팅에 업로드</span>
 npm run lint         <span class="cm"># 코드 규칙 검사</span></pre>
         </div>
         <p class="note"><strong>개발 서버</strong>가 켜져 있는 동안에는 파일을 저장하면 브라우저에 바로 반영됩니다. 새로고침할 필요가 없습니다.</p>
@@ -270,11 +270,11 @@ npm run lint         <span class="cm"># 코드 규칙 검사</span></pre>
       <div class="sec-head"><span class="sec-no">4</span><h2>폴더 구조<span class="en">Project Layout</span></h2></div>
       <div class="body">
         <p class="soft">수정할 일이 가장 많은 곳은 <code>src/data/</code>입니다. 화면 코드를 건드리지 않고 문구와 정보를 바꿀 수 있습니다.</p>
-        <div class="code tree"><div class="cap">project/derma_clinic</div><pre><span class="d">src/</span>
+        <div class="code tree"><div class="cap">medical-dermatology</div><pre><span class="d">src/</span>
 ├─ <span class="d">app/</span>                      <span class="cm">페이지 (폴더 = 주소)</span>
 │  ├─ layout.tsx            <span class="cm">모든 페이지 공통 틀: 폰트, 헤더, 푸터, 플로팅 버튼</span>
 │  ├─ globals.css           <span class="cm">디자인 토큰(색·폰트), 공통 스타일</span>
-│  ├─ page.tsx              <span class="cm">메인 페이지 (섹션 12개)</span>
+│  ├─ page.tsx              <span class="cm">메인 페이지 (섹션 순서는 data/site.ts 의 homeSections)</span>
 │  ├─ not-found.tsx         <span class="cm">404 페이지</span>
 │  ├─ sitemap.ts · robots.ts <span class="cm">검색엔진용 페이지 목록 · 수집 규칙</span>
 │  ├─ manifest.ts · icon.svg <span class="cm">앱 정보 · 파비콘</span>
@@ -292,7 +292,7 @@ npm run lint         <span class="cm"># 코드 규칙 검사</span></pre>
 │  ├─ Logo.tsx
 │  └─ ui.tsx                <span class="cm">PageHero, ButtonLink, Placeholder, CtaBand 등</span>
 ├─ <span class="d">lib/</span>
-│  ├─ config.ts             <span class="cm">★ BASE_PATH · 사이트 도메인(SITE_URL)</span>
+│  ├─ config.ts             <span class="cm">★ 주소 접두어·도메인 (값은 .env 파일에서)</span>
 │  ├─ seo.ts                <span class="cm">페이지별 제목·설명·canonical·공유 정보 helper</span>
 │  └─ schema.ts             <span class="cm">구조화 데이터(병원·의료진·경로·진료 페이지)</span>
 └─ <span class="d">data/</span>                     <span class="cm">★ 병원 정보는 전부 여기</span>
@@ -315,7 +315,7 @@ AGENTS.md                   <span class="cm">Next.js 16 주의 안내 (자동 �
         <div class="tbl"><table>
           <thead><tr><th>주소</th><th>파일</th><th>내용</th></tr></thead>
           <tbody>
-            <tr><td><code>/</code></td><td><code>app/page.tsx</code></td><td>히어로, 약속, 고민별 찾기, 진료과목, 시그니처 리프팅, 의료진, 첫 방문 과정, 공간, 장비, 이벤트, FAQ, 오시는 길 (12개 섹션)</td></tr>
+            <tr><td><code>/</code></td><td><code>components/blocks/*</code></td><td>히어로, 약속, 고민별 찾기, 진료과목, 시그니처 리프팅, 의료진, 첫 방문 과정, 공간, 장비, 이벤트, FAQ, 오시는 길 (12개 섹션)</td></tr>
             <tr><td><code>/about</code></td><td><code>app/about/page.tsx</code></td><td>철학, 세 가지 약속, 공간 소개</td></tr>
             <tr><td><code>/doctors</code></td><td><code>app/doctors/page.tsx</code></td><td>의료진 3인 (좌우 교차 배치)</td></tr>
             <tr><td><code>/treatments</code></td><td><code>app/treatments/page.tsx</code></td><td>미용 4 · 질환 4 목록, 분류 앵커 메뉴</td></tr>
@@ -394,7 +394,7 @@ AGENTS.md                   <span class="cm">Next.js 16 주의 안내 (자동 �
             <tr><td>장비 · 프락셀 듀얼</td><td class="path"><code>public/images/equipment/fraxel-dual.jpg</code></td><td>1200×900 · 4:3</td><td>제조사 제공 공식 이미지 또는 실제 보유 장비 촬영</td><td><span class="chip real">실제 사진</span></td></tr>
             <tr><td>장비 · 아그네스</td><td class="path"><code>public/images/equipment/agnes.jpg</code></td><td>1200×900 · 4:3</td><td>제조사 제공 공식 이미지 또는 실제 보유 장비 촬영</td><td><span class="chip real">실제 사진</span></td></tr>
             <tr><td>장비 · CO2 레이저</td><td class="path"><code>public/images/equipment/co2-laser.jpg</code></td><td>1200×900 · 4:3</td><td>제조사 제공 공식 이미지 또는 실제 보유 장비 촬영</td><td><span class="chip real">실제 사진</span></td></tr>
-            <tr><td>공유 이미지 (카톡·SNS)</td><td class="path"><code>src/app/og/route.tsx</code></td><td>1200×630</td><td>코드가 자동 생성. 디자인한 이미지로 바꾸려면 개발자에게 요청</td><td><span class="chip code">코드가 생성</span></td></tr>
+            <tr><td>공유 이미지 (카톡·SNS)</td><td class="path"><code>src/app/og.png/route.tsx</code></td><td>1200×630</td><td>코드가 자동 생성. 디자인한 이미지로 바꾸려면 개발자에게 요청</td><td><span class="chip code">코드가 생성</span></td></tr>
             <tr><td>파비콘</td><td class="path"><code>src/app/icon.svg</code></td><td>정사각 SVG</td><td>로고 확정 후 SVG로 교체</td><td><span class="chip code">코드가 생성</span></td></tr>
           </tbody>
         </table></div>
@@ -499,10 +499,10 @@ AGENTS.md                   <span class="cm">Next.js 16 주의 안내 (자동 �
 }</pre></div>
 
         <h3>주소 접두어 (basePath)</h3>
-        <p class="soft">로컬에서 <code>project/</code> 안의 다른 Next.js 사이트와 구분하려고 <code>next.config.ts</code>에 <code>basePath: "/project/derma_clinic"</code>를 설정했습니다. <code>http://localhost:3000</code>으로 들어오면 이 주소로 자동 이동합니다.</p>
+        <p class="soft">로컬에서 <code>project/</code> 안의 다른 Next.js 사이트와 구분하려고 <code>next.config.ts</code>에 <code>basePath: "/medical-dermatology"</code>를 설정했습니다. <code>http://localhost:3000</code>으로 들어오면 이 주소로 자동 이동합니다.</p>
         <ul class="list">
           <li><code>next/link</code>의 링크는 접두어가 자동으로 붙으므로 코드에는 <code>/about</code>처럼 적습니다.</li>
-          <li><code>public/</code>의 사진을 <code>next/image</code>로 쓸 때는 <code>src</code> 앞에 <code>/project/derma_clinic</code>를 직접 붙여야 합니다.</li>
+          <li><code>public/</code>의 사진을 <code>next/image</code>로 쓸 때는 <code>src</code> 앞에 <code>/medical-dermatology</code>를 직접 붙여야 합니다.</li>
           <li>실제 도메인 루트에 배포할 때는 <code>BASE_PATH</code>를 <code>""</code>로 바꾸고 <code>redirects</code> 설정을 지웁니다.</li>
           <li>다른 Next.js 사이트를 동시에 켜려면 포트를 다르게 줍니다. 예: <code>npm run dev -- -p 3001</code></li>
         </ul>

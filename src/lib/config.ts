@@ -3,12 +3,10 @@
 // ─────────────────────────────────────────────
 
 /**
- * 주소 접두어. 로컬에서 project/ 안의 다른 Next.js 사이트와 구분하기 위해 사용합니다.
- * 실제 도메인 루트에 배포할 때는 "" 로 바꾸세요.
-
-export const BASE_PATH = "/project/derma_clinic";
+ * 주소 접두어. 환경변수 NEXT_PUBLIC_BASE_PATH 로 지정합니다 (.env.local 참고).
+ * 로컬 데모: /project/medical-dermatology · 데모 서버: /medical-dermatology/lumiere · 실제 도메인: 비움
  */
-export const BASE_PATH = "";
+export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
 
 /**
  * 사이트 도메인 (canonical, sitemap, OG 절대주소에 사용).
@@ -16,7 +14,7 @@ export const BASE_PATH = "";
  */
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
-/** "/about" → "https://도메인/project/derma_clinic/about" */
+/** "/about" → "https://도메인{BASE_PATH}/about" */
 export function absoluteUrl(path = "/") {
   const p = path === "/" ? "" : path;
   return `${SITE_URL}${BASE_PATH}${p}`;

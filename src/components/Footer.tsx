@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="md:col-span-4">
           <Logo tone="light" />
           <p className="mt-6 max-w-xs text-sm leading-relaxed">
-            피부 본연의 빛을, 가장 정직한 방법으로.
+            {site.footerIntro[0]}
             <br />
-            피부과 전문의가 직접 진료합니다.
+            {site.footerIntro[1]}
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function Footer() {
             <span className="hidden sm:inline"> · </span>
             {site.address}
           </p>
-          <p>© {new Date().getFullYear()} LUMIÈRE Dermatology. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {site.brandFull}. All rights reserved.</p>
         </div>
       </div>
     </footer>

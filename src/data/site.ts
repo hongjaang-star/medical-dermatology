@@ -9,6 +9,10 @@ export const site = {
   branch: "강남점",
   area: "강남역", // 검색 지역 키워드 — 제목·설명에 사용
   tagline: "Reveal Your Own Light",
+  logoSub: "DERMATOLOGY", // 로고·공유 이미지의 영문 부제
+  brandFull: "LUMIÈRE Dermatology", // 저작권 표기, 공유 이미지 대체 텍스트
+  regionEn: "GANGNAM · SEOUL", // 공유 이미지 상단 표기
+  footerIntro: ["피부 본연의 빛을, 가장 정직한 방법으로.", "피부과 전문의가 직접 진료합니다."],
 
   // 검색 결과에 보이는 기본 제목·설명 (메인 페이지)
   seoTitle: "강남역 피부과 뤼미에르 | 리프팅·색소·여드름 피부과 전문의 진료",
@@ -56,6 +60,23 @@ export const site = {
     registration: "000-00-00000",
   },
 } as const;
+
+// ─────────────────────────────────────────────
+// 업종 설정 — 같은 업종의 다른 병원을 만들 때는 그대로, 다른 업종이면 여기를 교체
+// ─────────────────────────────────────────────
+export const industry = {
+  slug: "medical-dermatology",
+  variant: "lumiere",
+  schemaTypes: ["MedicalClinic", "Dermatology"], // schema.org 타입
+  medicalSpecialty: "Dermatologic",
+  specialistTitle: "피부과 전문의",
+} as const;
+
+// 메인 페이지 섹션 순서 — 키는 src/components/blocks/index.ts 참고. 빼거나 순서만 바꾸면 됩니다.
+export const homeSections = [
+  "hero", "promise", "concerns", "treatments", "signature", "doctors",
+  "process", "space", "equipment", "events", "faq", "visit",
+] as const;
 
 export const nav = [
   { href: "/about", label: "병원소개", en: "About" },
