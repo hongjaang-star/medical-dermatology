@@ -5,8 +5,10 @@
 /**
  * 주소 접두어. 로컬에서 project/ 안의 다른 Next.js 사이트와 구분하기 위해 사용합니다.
  * 실제 도메인 루트에 배포할 때는 "" 로 바꾸세요.
- */
+
 export const BASE_PATH = "/project/derma_clinic";
+ */
+export const BASE_PATH = "";
 
 /**
  * 사이트 도메인 (canonical, sitemap, OG 절대주소에 사용).
