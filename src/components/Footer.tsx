@@ -55,6 +55,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page space-y-4 py-8 text-xs leading-relaxed text-ivory/50">
           <p>{medicalNotice}</p>
+          <p className="text-ivory/80">이 사이트는 가상의 피부과를 소개하는 디자인 포트폴리오입니다. 의료진·이력·시설은 가상 설정이며, AI 생성 이미지는 참고용으로 실제 인물·병원·보유 장비를 나타내지 않습니다.</p>
           <p>
             {site.nameKo} · 대표자 {site.business.ceo} · 사업자등록번호 {site.business.registration}
             <br className="sm:hidden" />

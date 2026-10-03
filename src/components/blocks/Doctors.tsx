@@ -1,5 +1,7 @@
 import { doctors } from "@/data/content";
-import { Placeholder, SectionTitle, TextLink } from "@/components/ui";
+import Image from "next/image";
+import { assetPath } from "@/lib/config";
+import { SectionTitle, TextLink } from "@/components/ui";
 
 export default function Doctors() {
   return (
@@ -19,7 +21,9 @@ export default function Doctors() {
               style={{ ["--reveal-delay" as string]: `${i * 100}ms` }}
               className="group"
             >
-              <Placeholder label="Doctor Photo" arch className="aspect-[3/4]" />
+              <div className="relative aspect-[3/4] overflow-hidden rounded-t-full">
+                <Image src={assetPath(d.image)} alt={`${d.name} 원장 설정의 AI 생성 참고용 인물`} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw" className="object-cover" />
+              </div>
               <div className="mt-6 text-center">
                 <p className="text-[13px] tracking-wider text-gold-deep">{d.specialty}</p>
                 <p className="mt-2 font-serif-kr text-2xl text-ink">

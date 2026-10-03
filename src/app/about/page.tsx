@@ -2,7 +2,7 @@ import Image from "next/image";
 import { images } from "@/data/site";
 import { assetPath } from "@/lib/config";
 import { promises, spaces } from "@/data/content";
-import { CtaBand, PageHero, Placeholder, SectionTitle } from "@/components/ui";
+import { CtaBand, PageHero, SectionTitle } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -99,7 +99,9 @@ export default function AboutPage() {
           <ul className="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {spaces.map((s, i) => (
               <li key={s.label} data-reveal style={{ ["--reveal-delay" as string]: `${i * 80}ms` }}>
-                <Placeholder label={s.label} className="aspect-[3/4]" />
+                <div className="relative aspect-square overflow-hidden">
+                  <Image src={assetPath(s.image)} alt={`${s.name} — AI로 생성된 참고용 이미지`} fill sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw" className="object-cover" />
+                </div>
                 <h3 className="mt-5 text-lg font-semibold text-ink">{s.name}</h3>
                 <p className="mt-2 text-[15px] text-ink-soft">{s.desc}</p>
               </li>

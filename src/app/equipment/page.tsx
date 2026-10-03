@@ -1,5 +1,7 @@
 import { equipment } from "@/data/content";
-import { CtaBand, PageHero, Placeholder } from "@/components/ui";
+import Image from "next/image";
+import { assetPath } from "@/lib/config";
+import { CtaBand, PageHero } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -21,10 +23,13 @@ export default function EquipmentPage() {
       />
 
       <section className="bg-white py-20 md:py-28">
+        <p className="container-page mb-8 text-sm text-ink-soft">포트폴리오용 AI 참고 이미지입니다. 장비의 외형과 세부 구성은 실제 제품과 다를 수 있습니다.</p>
         <ul className="container-page grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {equipment.map((e, i) => (
             <li key={e.en} data-reveal style={{ ["--reveal-delay" as string]: `${(i % 3) * 80}ms` }}>
-              <Placeholder label={e.en} className="aspect-[4/3]" />
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image src={assetPath(e.image)} alt={`${e.name} 분류의 AI 참고 이미지 — 실제 제품 외형과 다를 수 있음`} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw" className="object-cover" />
+              </div>
               <div className="mt-6 flex items-baseline justify-between gap-4 border-b border-line pb-4">
                 <h2 className="text-xl font-semibold text-ink">{e.name}</h2>
                 <span className="shrink-0 text-[13px] text-gold-deep">{e.type}</span>

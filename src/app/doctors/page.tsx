@@ -1,5 +1,7 @@
 import { doctors } from "@/data/content";
-import { CtaBand, PageHero, Placeholder } from "@/components/ui";
+import Image from "next/image";
+import { assetPath } from "@/lib/config";
+import { CtaBand, PageHero } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 import { physicianSchemas } from "@/lib/schema";
@@ -35,7 +37,9 @@ export default function DoctorsPage() {
                 data-reveal
                 className={`md:col-span-5 ${i % 2 === 1 ? "md:order-2 md:col-start-8" : ""}`}
               >
-                <Placeholder label="Doctor Photo" arch className="mx-auto aspect-[3/4] max-w-sm" />
+                <div className="relative mx-auto aspect-[3/4] max-w-sm overflow-hidden rounded-t-full">
+                  <Image src={assetPath(d.image)} alt={`${d.name} 원장 설정의 AI 생성 참고용 인물`} fill sizes="(min-width: 768px) 384px, 90vw" className="object-cover" />
+                </div>
               </div>
               <div
                 data-reveal

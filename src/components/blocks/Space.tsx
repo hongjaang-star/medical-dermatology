@@ -1,5 +1,7 @@
 import { spaces } from "@/data/content";
-import { Placeholder, SectionTitle, TextLink } from "@/components/ui";
+import Image from "next/image";
+import { assetPath } from "@/lib/config";
+import { SectionTitle, TextLink } from "@/components/ui";
 
 export default function Space() {
   const [main, ...rest] = spaces;
@@ -18,7 +20,9 @@ export default function Space() {
         </div>
         <div className="mt-14 grid gap-x-5 gap-y-8 md:grid-cols-3">
           <figure data-reveal className="md:col-span-2 md:row-span-2">
-            <Placeholder label={main.label} size="1600 × 1200" className="aspect-[4/3] w-full" />
+            <div className="relative aspect-square overflow-hidden">
+              <Image src={assetPath(main.image)} alt={`${main.name} — AI로 생성된 참고용 이미지`} fill sizes="(min-width: 768px) 60vw, 90vw" className="object-cover" />
+            </div>
             <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-[15px]">
               <span className="font-semibold text-ink">{main.name}</span>
               <span className="text-ink-soft">{main.desc}</span>
@@ -26,7 +30,9 @@ export default function Space() {
           </figure>
           {rest.slice(0, 2).map((s, i) => (
             <figure key={s.label} data-reveal style={{ ["--reveal-delay" as string]: `${(i + 1) * 90}ms` }}>
-              <Placeholder label={s.label} size="800 × 600" className="aspect-[4/3] w-full" />
+              <div className="relative aspect-square overflow-hidden">
+                <Image src={assetPath(s.image)} alt={`${s.name} — AI로 생성된 참고용 이미지`} fill sizes="(min-width: 768px) 30vw, 90vw" className="object-cover" />
+              </div>
               <figcaption className="mt-3 text-[15px] font-semibold text-ink">{s.name}</figcaption>
             </figure>
           ))}

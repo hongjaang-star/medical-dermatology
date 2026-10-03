@@ -7,6 +7,7 @@ export type Doctor = {
   role: string;
   specialty: string;
   initial: string;
+  image: string;
   quote: string;
   career: string[];
 };
@@ -17,6 +18,7 @@ export const doctors: Doctor[] = [
     role: "대표원장",
     specialty: "리프팅 · 안티에이징",
     initial: "H",
+    image: "/images/doctors/han-seoyun.jpg",
     quote: "피부가 가진 본래의 빛을 되찾는 것, 그것이 가장 아름다운 결과라고 믿습니다.",
     career: [
       "피부과 전문의",
@@ -30,6 +32,7 @@ export const doctors: Doctor[] = [
     role: "원장",
     specialty: "색소 · 레이저",
     initial: "L",
+    image: "/images/doctors/lee-dohyun.jpg",
     quote: "색소는 원인이 다르면 답도 다릅니다. 진단에 가장 많은 시간을 씁니다.",
     career: [
       "피부과 전문의",
@@ -43,6 +46,7 @@ export const doctors: Doctor[] = [
     role: "원장",
     specialty: "여드름 · 피부질환",
     initial: "J",
+    image: "/images/doctors/jung-yujin.jpg",
     quote: "치료는 결국 일상으로 돌아가는 과정입니다. 오래 편안한 피부를 함께 만들어요.",
     career: [
       "피부과 전문의",
@@ -54,6 +58,7 @@ export const doctors: Doctor[] = [
 ];
 
 export type Equipment = {
+  image: string;
   name: string;
   en: string;
   type: string;
@@ -61,16 +66,16 @@ export type Equipment = {
 };
 
 export const equipment: Equipment[] = [
-  { name: "울쎄라", en: "Ulthera", type: "HIFU 리프팅", desc: "초음파 에너지를 SMAS층까지 전달해 처진 윤곽을 끌어올립니다." },
-  { name: "써마지 FLX", en: "Thermage FLX", type: "RF 리프팅", desc: "고주파로 진피층 콜라겐을 자극해 탄력과 피부결을 개선합니다." },
-  { name: "슈링크 유니버스", en: "Shurink Universe", type: "HIFU 리프팅", desc: "부위별 카트리지로 얼굴·바디 윤곽을 섬세하게 정리합니다." },
-  { name: "피코슈어", en: "PicoSure", type: "피코 레이저", desc: "피코초 단위의 짧은 펄스로 색소를 잘게 부숴 톤을 맑게 합니다." },
-  { name: "레이저토닝 스펙트라", en: "Spectra", type: "색소 레이저", desc: "기미와 칙칙한 톤을 저자극으로 개선하는 토닝 레이저입니다." },
-  { name: "엑셀V", en: "Excel V", type: "혈관 레이저", desc: "홍조, 모세혈관 확장, 색소를 함께 치료하는 복합 레이저입니다." },
-  { name: "포텐자", en: "Potenza", type: "마이크로니들 RF", desc: "미세 바늘과 고주파로 모공, 흉터, 피부결을 개선합니다." },
-  { name: "프락셀 듀얼", en: "Fraxel Dual", type: "프락셔널 레이저", desc: "피부 재생을 유도해 패인 흉터와 잔주름을 개선합니다." },
-  { name: "아그네스", en: "Agnes", type: "절연 RF", desc: "피지선을 선택적으로 치료해 반복되는 여드름을 줄입니다." },
-  { name: "CO2 레이저", en: "CO2 Laser", type: "제거 레이저", desc: "점, 사마귀, 검버섯 등 병변을 정밀하게 제거합니다." },
+  { image: "/images/equipment/ulthera.jpg", name: "울쎄라", en: "Ulthera", type: "HIFU 리프팅", desc: "초음파 에너지를 SMAS층까지 전달해 처진 윤곽을 끌어올립니다." },
+  { image: "/images/equipment/thermage-flx.jpg", name: "써마지 FLX", en: "Thermage FLX", type: "RF 리프팅", desc: "고주파로 진피층 콜라겐을 자극해 탄력과 피부결을 개선합니다." },
+  { image: "/images/equipment/shurink-universe.jpg", name: "슈링크 유니버스", en: "Shurink Universe", type: "HIFU 리프팅", desc: "부위별 카트리지로 얼굴·바디 윤곽을 섬세하게 정리합니다." },
+  { image: "/images/equipment/picosure.jpg", name: "피코슈어", en: "PicoSure", type: "피코 레이저", desc: "피코초 단위의 짧은 펄스로 색소를 잘게 부숴 톤을 맑게 합니다." },
+  { image: "/images/equipment/spectra.jpg", name: "레이저토닝 스펙트라", en: "Spectra", type: "색소 레이저", desc: "기미와 칙칙한 톤을 저자극으로 개선하는 토닝 레이저입니다." },
+  { image: "/images/equipment/excel-v.jpg", name: "엑셀V", en: "Excel V", type: "혈관 레이저", desc: "홍조, 모세혈관 확장, 색소를 함께 치료하는 복합 레이저입니다." },
+  { image: "/images/equipment/potenza.jpg", name: "포텐자", en: "Potenza", type: "마이크로니들 RF", desc: "미세 바늘과 고주파로 모공, 흉터, 피부결을 개선합니다." },
+  { image: "/images/equipment/fraxel-dual.jpg", name: "프락셀 듀얼", en: "Fraxel Dual", type: "프락셔널 레이저", desc: "피부 재생을 유도해 패인 흉터와 잔주름을 개선합니다." },
+  { image: "/images/equipment/agnes.jpg", name: "아그네스", en: "Agnes", type: "절연 RF", desc: "피지선을 선택적으로 치료해 반복되는 여드름을 줄입니다." },
+  { image: "/images/equipment/co2-laser.jpg", name: "CO2 레이저", en: "CO2 Laser", type: "제거 레이저", desc: "점, 사마귀, 검버섯 등 병변을 정밀하게 제거합니다." },
 ];
 
 export type ClinicEvent = {
@@ -154,10 +159,10 @@ export const visitSteps = [
 
 /** 공간 소개 (메인·병원소개 공용) */
 export const spaces = [
-  { label: "Reception", name: "리셉션 · 라운지", desc: "머무는 시간까지 편안하도록 채광과 동선을 설계했습니다." },
-  { label: "Consulting", name: "1:1 상담실", desc: "독립된 상담실에서 전문의와 충분히 대화합니다." },
-  { label: "Treatment", name: "개별 시술실", desc: "모든 시술실은 1인 1실로 프라이버시를 지킵니다." },
-  { label: "Powder Room", name: "파우더룸", desc: "시술 후 가볍게 정돈하고 일상으로 돌아가세요." },
+  { image: "/images/space/reception.jpg", label: "Reception", name: "리셉션 · 라운지", desc: "머무는 시간까지 편안하도록 채광과 동선을 설계했습니다." },
+  { image: "/images/space/consulting.jpg", label: "Consulting", name: "1:1 상담실", desc: "독립된 상담실에서 전문의와 충분히 대화합니다." },
+  { image: "/images/space/treatment.jpg", label: "Treatment", name: "개별 시술실", desc: "모든 시술실은 1인 1실로 프라이버시를 지킵니다." },
+  { image: "/images/space/powder-room.jpg", label: "Powder Room", name: "파우더룸", desc: "시술 후 가볍게 정돈하고 일상으로 돌아가세요." },
 ];
 
 /** 메인 자주 묻는 질문 */
